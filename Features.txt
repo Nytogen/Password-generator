@@ -1,0 +1,13 @@
+- Password creator
+  - Salting
+  - Create from a subset of characters
+  - Length requirment
+  - Character Requirements
+- Encryption/Decryption
+  - Chiper
+    - Ceaser shift
+  - Transposition
+    - Redfence
+    - Railfence
+    - Four winds
+    - Complete columnar
