@@ -1,6 +1,6 @@
 - Password creator
-  - Salting
-  - Create from a subset of characters
+  - Salting (Completed)
+  - Create from a subset of characters (Completed)
   - Length requirment
   - Character Requirements
 - Encryption/Decryption
@@ -11,3 +11,7 @@
     - Railfence
     - Four winds
     - Complete columnar
+  - Encoding
+    - To ascii
+    - Hexadecimal
+    - Binary

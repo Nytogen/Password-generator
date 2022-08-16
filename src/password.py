@@ -12,13 +12,9 @@ def createRandString(acceptChar, length):
         output = output + acceptChar[random.randint(0, len(acceptChar)-1)]
     return output
 
-def createPassword(passwordLen, saltLen):
-    password = createRandString(alpha+symbol+number, passwordLen)
-    salt = createRandString(alpha+symbol+number, saltLen)
+def createPassword(acceptChar, passwordLen):
+    return createRandString(acceptChar, passwordLen)
 
-    print(password)
-    print(salt)
 
-for i in range(20):
-    createPassword(24,10)
-    print("---------------")
+def createSalt(acceptChar):
+    return createRandString(acceptChar, random.randint(10, 20))
