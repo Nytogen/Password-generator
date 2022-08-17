@@ -1,5 +1,5 @@
 ### RAIL FENCE
-def railFenceEn(pt, key):
+def railFenceEn(pt, key, asList):
     rails = [""] * key
     down = True
     curRail = 0
@@ -18,8 +18,8 @@ def railFenceEn(pt, key):
                 down = True
                 curRail = 1
 
-        print(rails)
-
+    if asList:
+        return rails
     return ''.join(rails)
         
 
