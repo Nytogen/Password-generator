@@ -7,7 +7,7 @@
   - Chiper
     - Ceaser shift
   - Transposition
-    - Redfence
+    - Redfence (Completed + Test Cases)
     - Railfence
     - Four winds
     - Complete columnar
