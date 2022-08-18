@@ -115,5 +115,3 @@ def redFenceEn(pt, key, asList):
     return ''.join(newOrder)
 
 ### RED FENCE
-
-print (redFenceEn("1234567890", "1234", False))
