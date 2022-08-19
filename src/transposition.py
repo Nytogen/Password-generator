@@ -7,6 +7,9 @@ asList- Return the chiper text as a list of rails if true, otherwise as a string
 
 returns - A list of rails or a string of the chiper text
 """
+from pydoc import plain
+
+
 def railFenceEn(pt, key, asList):
     newKey = ""
     for i in range(1,key+1):
@@ -15,71 +18,25 @@ def railFenceEn(pt, key, asList):
     return redFenceEn(pt,newKey,asList)
 
 """
-Encrypts the chiper text into plain text by using the rail fence algo
+Decrypt the chiper text into plain text by using the rail fence algo
 ct - chiper Text
 key - number of rails desired
 
 returns - The plain text of the chiper text
 """
 def railFenceDe(ct, key):
-    rails = [""] * key
-    lengths = [0]*key
-    down = True
-    curRail = 0
-
-    #Get the length of each rail
-    for i in range(len(ct)):
-        lengths[curRail] = lengths[curRail] + 1
-
-        if down:
-            curRail = curRail + 1
-            if curRail >= key:
-                down = False
-                curRail = key - 2
-        else:
-            curRail = curRail - 1
-            if curRail < 0:
-                down = True
-                curRail = 1
+    newKey = ""
+    for i in range(1,key+1):
+        newKey = newKey + str(i)
     
-    curRail = 0
-    down = True
-
-    currSeek = 0
-
-    #Get the text for each rail
-    for i in range(key):
-        rails[i] = ct[currSeek: currSeek+lengths[i]]
-        currSeek += lengths[i]
-
-    plainText = ""
-    railPos = [0] * key
-
-    #Dechiper
-    for i in range(len(ct)):
-        plainText = plainText + rails[curRail][railPos[curRail]]
-
-        railPos[curRail] += 1
-
-        if down:
-            curRail = curRail + 1
-            if curRail >= key:
-                down = False
-                curRail = key - 2
-        else:
-            curRail = curRail - 1
-            if curRail < 0:
-                down = True
-                curRail = 1       
-
-    return plainText
+    return redFenceDe(ct,newKey)    
         
 ### RAIL FENCE
 
 
 ### RED FENCE
 """
-Encrypts plain text into chiper text by using the rail fence algo
+Encrypts plain text into chiper text by using the red fence algo
 pt - Plain text
 key - number of rails desired and the order desired
 asList- Return the chiper text as a list of rails if true, otherwise as a string
@@ -106,12 +63,84 @@ def redFenceEn(pt, key, asList):
                 down = True
                 curRail = 1
 
-        newOrder = [""]*keyLength
-        for i in range(keyLength):
-            newOrder[i] = rails[int(key[i])-1]
+    newOrder = [""]*keyLength
+    for i in range(keyLength):
+        newOrder[i] = rails[int(key[i])-1]
 
     if asList:
         return newOrder
     return ''.join(newOrder)
+
+"""
+Decrypt the chiper text into plain text by using the red fence algo
+ct - chiper Text
+key - the order and number of rails required
+
+returns - The plain text of the chiper text
+"""
+def redFenceDe(ct, key):
+    keyLength = len(key)
+    rails = {}
+    lengths = {}
+    down = True
+    curRail = 1
+
+    for i in range(keyLength):
+        rails[i+1] = ""
+        lengths[i+1] = 0      
+
+    #Get the length of each rail
+    for i in range(len(ct)):
+        lengths[curRail] = lengths.get(curRail) + 1
+        
+        if down:
+            if curRail == keyLength:
+                down = False
+                curRail = keyLength-1
+            else:
+                curRail = curRail + 1
+        else:
+            if curRail == 1:
+                down = True
+                curRail = 2
+            else:
+                curRail = curRail - 1
+
+    curRail = 1
+    down = True
+
+    currSeek = 0
+
+    #Get the text for each rail
+    for i in range(keyLength):
+        rails[int(key[i])] = ct[currSeek: currSeek + lengths.get(int(key[i]))]
+        currSeek += lengths.get(int(key[i]))
+
+    plainText = ""
+    railPos = [0] * keyLength
+
+
+    #Dechiper
+    for i in range(len(ct)):
+        plainText = plainText + rails.get(curRail)[railPos[curRail-1]]
+
+        railPos[curRail-1] += 1
+
+        if down:
+            if curRail == keyLength:
+                down = False
+                curRail = keyLength-1
+            else:
+                curRail = curRail + 1
+        else:
+            if curRail == 1:
+                down = True
+                curRail = 2
+            else:
+                curRail = curRail - 1
+
+              
+
+    return plainText
 
 ### RED FENCE

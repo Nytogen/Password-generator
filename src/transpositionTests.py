@@ -8,6 +8,12 @@ class redFence(unittest.TestCase):
         self.assertEqual(transposition.redFenceEn("1234567890", "1234", True), ["17","268","359","40"])
         self.assertEqual(transposition.redFenceEn("1234567890", "54321", True), ["5","46","37","280","19"])
 
+    def testDe(self):
+        self.assertEqual(transposition.redFenceDe("1357924680", "12"),"1234567890")
+        self.assertEqual(transposition.redFenceDe("1593724680", "132"), "1234567890")
+        self.assertEqual(transposition.redFenceDe("1726835940", "1234"), "1234567890")
+        self.assertEqual(transposition.redFenceDe("5463728019", "54321"), "1234567890")           
+
 class railFence(unittest.TestCase):
     def testEn(self):
         self.assertEqual(transposition.railFenceEn("1234567890", 2, False),"1357924680")
