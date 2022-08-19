@@ -7,8 +7,8 @@
   - Chiper
     - Ceaser shift
   - Transposition
-    - Redfence (Completed + Test Cases)
-    - Railfence
+    - Redfence (Implementation + Test Cases) - Extra Work: Error Checking
+    - Railfence (Implementation + Test Cases) - Extra Work: Error Checking/Support for keys larger than 9 numbers
     - Four winds
     - Complete columnar
   - Encoding
