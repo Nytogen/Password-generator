@@ -6,6 +6,8 @@
 - Encryption/Decryption
   - Chiper
     - Ceaser shift
+    - Scramble Chiper
+    - ATBASH
   - Transposition
     - Redfence (Implementation + Test Cases) - Extra Work: Error Checking
     - Railfence (Implementation + Test Cases) - Extra Work: Error Checking/Support for keys larger than 9 numbers
@@ -15,3 +17,9 @@
     - To ascii
     - Hexadecimal
     - Binary
+  - Codes
+    - Phonetic Alphabet
+    - Conversion to Morse Code
+  - Steganography
+    - Null
+  
