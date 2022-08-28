@@ -1,3 +1,5 @@
+from pydoc import plain
+
 ### RAIL FENCE
 """
 Encrypts plain text into chiper text by using the rail fence algo
@@ -7,9 +9,6 @@ asList- Return the chiper text as a list of rails if true, otherwise as a string
 
 returns - A list of rails or a string of the chiper text
 """
-from pydoc import plain
-
-
 def railFenceEn(pt, key, asList):
     newKey = ""
     for i in range(1,key+1):
@@ -144,3 +143,32 @@ def redFenceDe(ct, key):
     return plainText
 
 ### RED FENCE
+
+
+### FOUR WINDS
+
+def fourWindEn(pt, key):
+    if key:
+        pass
+    mills = [""]*3
+    currMill = 0
+
+    for i in range(0, len(pt)):
+        if currMill == 0:
+            mills[1] = mills[1] + pt[i]
+        elif currMill == 1:
+            mills[0] = mills[0] + pt[i]    
+        elif currMill == 2:
+            mills[1] = mills[1] + pt[i]                        
+        else:
+            mills[2] = mills[2] + pt[i]  
+        
+        currMill = currMill + 1
+
+        if currMill == 4:
+            currMill = 0
+    print(mills)
+    return ("").join(mills)
+
+### FOUR WINDS
+fourWindEn("1234567890", True)

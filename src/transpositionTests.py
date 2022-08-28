@@ -27,6 +27,12 @@ class railFence(unittest.TestCase):
         self.assertEqual(transposition.railFenceDe("1726835940", 4), "1234567890")
         self.assertEqual(transposition.railFenceDe("1928037465", 5), "1234567890")        
 
+class fourWinds(unittest.TestCase):
+    def testEn(self):
+        self.assertEqual(transposition.fourWindEn("1234567890",True),"2601357948")
+        self.assertEqual(transposition.fourWindEn("thisisexampletext",True), "hsmttiieapeetsxlx")
+
+
 
 if __name__ == "__main__":
     unittest.main()
