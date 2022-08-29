@@ -11,7 +11,7 @@
   - Transposition
     - Redfence (Implementation + Test Cases) - Extra Work: Error Checking
     - Railfence (Implementation + Test Cases) - Extra Work: Error Checking/Support for keys larger than 9 numbers
-    - Four winds
+    - Four winds (Implementation + Test Case) - Extra Work : Error Checking/Ability to change starting position
     - Complete columnar
   - Encoding
     - To ascii

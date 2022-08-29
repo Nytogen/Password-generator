@@ -31,6 +31,9 @@ class fourWinds(unittest.TestCase):
     def testEn(self):
         self.assertEqual(transposition.fourWindEn("1234567890",True),"2601357948")
         self.assertEqual(transposition.fourWindEn("thisisexampletext",True), "hsmttiieapeetsxlx")
+    def testDe(self):
+        self.assertEqual(transposition.fourWindDe("2601357948",True),"1234567890")
+        self.assertEqual(transposition.fourWindDe("hsmttiieapeetsxlx",True), "thisisexampletext")        
 
 
 
