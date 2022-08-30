@@ -27,18 +27,10 @@ class railFence(unittest.TestCase):
         self.assertEqual(transposition.railFenceDe("1726835940", 4), "1234567890")
         self.assertEqual(transposition.railFenceDe("1928037465", 5), "1234567890")        
 
-class fourWinds(unittest.TestCase):
+class completeColumnar(unittest.TestCase):
     def testEn(self):
-        self.assertEqual(transposition.fourWindEn("1234567890",True),"2601357948")
-        self.assertEqual(transposition.fourWindEn("thisisexampletext",True), "hsmttiieapeetsxlx")
-        self.assertEqual(transposition.fourWindEn("1234567890",False),"4813579260")
-        self.assertEqual(transposition.fourWindEn("thisisexampletext",False), "sxlxtiieapeethsmt")        
-    def testDe(self):
-        self.assertEqual(transposition.fourWindDe("2601357948",True),"1234567890")
-        self.assertEqual(transposition.fourWindDe("hsmttiieapeetsxlx",True), "thisisexampletext")     
-        self.assertEqual(transposition.fourWindDe("4813579260",False),"1234567890")
-        self.assertEqual(transposition.fourWindDe("sxlxtiieapeethsmt",False), "thisisexampletext")      
-
+        self.assertEqual(transposition.completeColumnarEn("thisisexampletext", "4312"), "iepesxlxhsmttiaet")
+        self.assertEqual(transposition.completeColumnarEn("thisisexampletext", "1234"), "tiaethsmtiepesxlx")
 
 
 if __name__ == "__main__":

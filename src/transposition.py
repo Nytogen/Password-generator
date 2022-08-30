@@ -271,3 +271,26 @@ def fourWindSetMillsCounter(ct, mills, numMills, leftMills):
 
 ### FOUR WINDS
 
+### COMPLETE COLUMNAR
+
+def completeColumnarEn(pt, key):
+    columns = [""]*len(key)
+
+    for i in range(len(pt)):
+        columns[i%len(columns)] = columns[i%len(columns)]  + pt[i]
+
+    ct = ""
+    keyColumns = {}
+    pos = 0
+    for i in key:
+        keyColumns[int(i)-1] = pos
+        pos = pos + 1    
+
+    for i in range(len(key)):
+        ct = ct + columns[keyColumns.get(i)]
+    
+    return ct
+
+### COMPLETE COLUMNAR
+
+
