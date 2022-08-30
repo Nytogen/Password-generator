@@ -163,7 +163,11 @@ returns - The chiper text
 """
 def fourWindEn(pt, key):
     if key:
-        pass
+        top = 0
+        bottom = 2
+    else:
+        top = 2
+        bottom = 0
     mills = [""]*3
     currMill = 0
 
@@ -171,11 +175,11 @@ def fourWindEn(pt, key):
         if currMill == 0:
             mills[1] = mills[1] + pt[i]
         elif currMill == 1:
-            mills[0] = mills[0] + pt[i]    
+            mills[top] = mills[top] + pt[i]    
         elif currMill == 2:
             mills[1] = mills[1] + pt[i]                        
         else:
-            mills[2] = mills[2] + pt[i]  
+            mills[bottom] = mills[bottom] + pt[i]  
         
         currMill = currMill + 1
 
@@ -194,8 +198,6 @@ key - clockwise or counter clockwise
 returns - The plain text of the chiper text
 """
 def fourWindDe(ct, key):
-    if key:
-        pass
     mills = [""]*3
     millsPos = [0]*3
     currMill = 0
@@ -203,6 +205,39 @@ def fourWindDe(ct, key):
     leftMills = len(ct)%4
     pt = ""
 
+    fourWindSetMillsClock(ct, mills, numMills, leftMills)
+    
+    if key:
+        top = 0
+        bottom = 2
+        fourWindSetMillsClock(ct, mills, numMills, leftMills)
+    else:
+        top = 2
+        bottom = 0
+        fourWindSetMillsCounter(ct, mills, numMills, leftMills)
+
+    for i in range(len(ct)):
+        if currMill == 0:
+            pt = pt + mills[1][millsPos[1]]
+            millsPos[1] = millsPos[1] + 1
+        elif currMill == 1:
+            pt = pt + mills[top][millsPos[top]]
+            millsPos[top] = millsPos[top] + 1
+        elif currMill == 2:
+            pt = pt + mills[1][millsPos[1]]
+            millsPos[1] = millsPos[1] + 1              
+        else:
+            pt = pt + mills[bottom][millsPos[bottom]]
+            millsPos[bottom] = millsPos[bottom] + 1
+
+        currMill = currMill + 1
+
+        if currMill == 4:
+            currMill = 0      
+
+    return pt
+
+def fourWindSetMillsClock(ct, mills, numMills, leftMills):
     if leftMills == 3:
         mills[0] = ct[0: numMills + 1]
         mills[1] = ct[numMills + 1: (3 * numMills)+3]
@@ -219,28 +254,20 @@ def fourWindDe(ct, key):
         mills[0] = ct[0: numMills]
         mills[1] = ct[numMills: (3 * numMills)]
         mills[2] = ct[3*numMills:]
-  
-    for i in range(len(ct)):
-        if currMill == 0:
-            pt = pt + mills[1][millsPos[1]]
-            millsPos[1] = millsPos[1] + 1
-        elif currMill == 1:
-            pt = pt + mills[0][millsPos[0]]
-            millsPos[0] = millsPos[0] + 1
-        elif currMill == 2:
-            pt = pt + mills[1][millsPos[1]]
-            millsPos[1] = millsPos[1] + 1              
-        else:
-            pt = pt + mills[2][millsPos[2]]
-            millsPos[2] = millsPos[2] + 1
 
-        currMill = currMill + 1
-
-        if currMill == 4:
-            currMill = 0      
-
-    return pt
-
+def fourWindSetMillsCounter(ct, mills, numMills, leftMills):
+    if leftMills == 3:
+        mills[0] = ct[0: numMills + 1]
+        mills[1] = ct[numMills + 1: (3 * numMills)+2]
+        mills[2] = ct[(3*numMills) + 2:]
+    elif leftMills % 4 != 0:
+        mills[0] = ct[0: numMills]
+        mills[1] = ct[numMills: (3 * numMills)+1]
+        mills[2] = ct[(3*numMills) + 1:]
+    else:
+        mills[0] = ct[0: numMills]
+        mills[1] = ct[numMills: (3 * numMills)]
+        mills[2] = ct[3*numMills:]    
 
 ### FOUR WINDS
 
