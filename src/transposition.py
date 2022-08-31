@@ -322,6 +322,3 @@ def completeColumnarDe(ct, key):
     return pt
 
 ### COMPLETE COLUMNAR
-
-print(completeColumnarDe("25314", "312"))
-
