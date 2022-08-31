@@ -282,6 +282,7 @@ def completeColumnarEn(pt, key):
     ct = ""
     keyColumns = {}
     pos = 0
+
     for i in key:
         keyColumns[int(i)-1] = pos
         pos = pos + 1    
@@ -291,6 +292,36 @@ def completeColumnarEn(pt, key):
     
     return ct
 
+def completeColumnarDe(ct, key):
+    keyLength = len(key)
+    columns = [0]*keyLength
+    columnText = [""]*keyLength
+    seek = 0
+
+    columnLength = len(ct) // keyLength
+    remaining = len(ct) % keyLength
+
+    for i in range(keyLength):
+        if i < remaining:
+            columns[int(key[i])-1] = columnLength + 1
+        else:
+            columns[int(key[i])-1] = columnLength
+
+    for i in range(keyLength):
+        columnText[i] = ct[seek:seek + columns[i]]
+        seek = seek + columns[i]        
+
+    columnsPos = [0]*keyLength
+    pt = ""
+
+    for i in range(len(ct)):
+        nextCol = int(key[i%keyLength]) - 1
+        pt = pt + columnText[nextCol][columnsPos[i%keyLength]]
+        columnsPos[i%keyLength] = columnsPos[i%keyLength] + 1
+
+    return pt
+
 ### COMPLETE COLUMNAR
 
+print(completeColumnarDe("25314", "312"))
 

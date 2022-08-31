@@ -31,6 +31,14 @@ class completeColumnar(unittest.TestCase):
     def testEn(self):
         self.assertEqual(transposition.completeColumnarEn("thisisexampletext", "4312"), "iepesxlxhsmttiaet")
         self.assertEqual(transposition.completeColumnarEn("thisisexampletext", "1234"), "tiaethsmtiepesxlx")
+        self.assertEqual(transposition.completeColumnarEn("1234567890", "123"), "1470258369")
+        self.assertEqual(transposition.completeColumnarEn("1234567890", "321"), "3692581470")
+
+    def testDe(self):
+        self.assertEqual(transposition.completeColumnarDe("iepesxlxhsmttiaet", "4312"), "thisisexampletext")
+        self.assertEqual(transposition.completeColumnarDe("tiaethsmtiepesxlx", "1234"), "thisisexampletext")
+        self.assertEqual(transposition.completeColumnarDe("1470258369", "123"), "1234567890")
+        self.assertEqual(transposition.completeColumnarDe("3692581470", "321"), "1234567890")        
 
 
 if __name__ == "__main__":
