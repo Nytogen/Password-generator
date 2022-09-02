@@ -5,7 +5,8 @@
   - Character Requirements
 - Encryption/Decryption
   - Chiper
-    - Ceaser shift
+    - Ceaser shift (Implementation + Test Cases) - Extra Work: Error Checking
+    - ROT13
     - Scramble Chiper
     - ATBASH
   - Transposition
