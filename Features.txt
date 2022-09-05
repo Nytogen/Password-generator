@@ -6,7 +6,7 @@
 - Encryption/Decryption
   - Chiper
     - Ceaser shift (Implementation + Test Cases) - Extra Work: Error Checking
-    - ROT13
+    - ROT13 (Implementation + Test Cases) 
     - Scramble Chiper
     - ATBASH
   - Transposition
