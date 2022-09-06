@@ -25,11 +25,16 @@ class atBash(unittest.TestCase):
     def testEn(self):
         self.assertEqual(encoding.atbashEn("HELLOWORLD"), "SVOOLDLIOW")
         self.assertEqual(encoding.atbashEn("helloworld"), "svooldliow")
+        self.assertEqual(encoding.atbashDe("HeLlOwOrLd"), "SvOoLdLiOw")
         self.assertEqual(encoding.atbashEn("_+!@123"), "_+!@123")
         self.assertEqual(encoding.atbashEn("a!b2$c"), "z!y2$x")
 
     def testDe(self):
-        pass
+        self.assertEqual(encoding.atbashDe("SVOOLDLIOW"), "HELLOWORLD")
+        self.assertEqual(encoding.atbashDe("svooldliow"), "helloworld")
+        self.assertEqual(encoding.atbashDe("SvOoLdLiOw"), "HeLlOwOrLd")
+        self.assertEqual(encoding.atbashDe("_+!@123"), "_+!@123")
+        self.assertEqual(encoding.atbashDe("z!y2$x"), "a!b2$c")
 
 
 if __name__ == "__main__":

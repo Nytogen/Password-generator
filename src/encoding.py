@@ -36,3 +36,19 @@ def atbashEn(pt):
             ct = ct + i
     
     return ct
+
+def atbashDe(pt):
+    ct = ""
+
+    for i in pt:
+        if i.isalpha():
+            if i.isupper():
+                shift = 90 - ord(i)
+                ct = ct + chr(65 + shift)
+            else:
+                shift = 122 - ord(i)
+                ct = ct + chr(97 + shift)
+        else:
+            ct = ct + i
+    
+    return ct
