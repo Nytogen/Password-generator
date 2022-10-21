@@ -1,6 +1,6 @@
 from pydoc import plain
 
-### RAIL FENCE
+### RAIL FENCE START
 """
 Encrypts plain text into chiper text by using the rail fence algo
 pt - Plain text
@@ -30,10 +30,10 @@ def railFenceDe(ct, key):
     
     return redFenceDe(ct,newKey)    
         
-### RAIL FENCE
+### RAIL FENCE END
 
 
-### RED FENCE
+### RED FENCE START
 """
 Encrypts plain text into chiper text by using the red fence algo
 pt - Plain text
@@ -142,10 +142,10 @@ def redFenceDe(ct, key):
 
     return plainText
 
-### RED FENCE
+### RED FENCE END
 
 
-### FOUR WINDS
+### FOUR WINDS START
 """
 Encrypt the plain text into chiper text by using the Four Windsalgo
 
@@ -269,9 +269,9 @@ def fourWindSetMillsCounter(ct, mills, numMills, leftMills):
         mills[1] = ct[numMills: (3 * numMills)]
         mills[2] = ct[3*numMills:]    
 
-### FOUR WINDS
+### FOUR WINDS END
 
-### COMPLETE COLUMNAR
+### COMPLETE COLUMNAR START
 
 def completeColumnarEn(pt, key):
     columns = [""]*len(key)
@@ -321,4 +321,4 @@ def completeColumnarDe(ct, key):
 
     return pt
 
-### COMPLETE COLUMNAR
+### COMPLETE COLUMNAR END

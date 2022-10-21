@@ -1,3 +1,4 @@
+### CEASERSHIFT START
 def ceaserShiftEn(pt, key):
     ct = ""
 
@@ -14,13 +15,18 @@ def ceaserShiftDe(ct, key):
     
     return pt
 
+### CEASERSHIFT END
+
+### ROT13 START
 def rot13En(pt):
     return ceaserShiftEn(pt, 13)
 
 def rot13De(ct):
     return ceaserShiftDe(ct, 13)
 
+### ROT13 END
 
+### ATBASH START
 def atbashEn(pt):
     ct = ""
 
@@ -52,3 +58,5 @@ def atbashDe(pt):
             ct = ct + i
     
     return ct
+
+### ATBASH END
