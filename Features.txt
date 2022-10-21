@@ -8,7 +8,7 @@
     - Ceaser shift (Implementation + Test Cases) - Extra Work: Error Checking
     - ROT13 (Implementation + Test Cases) 
     - Scramble Chiper
-    - ATBASH
+    - ATBASH (Implementation + Test Cases) 
   - Transposition
     - Redfence (Implementation + Test Cases) - Extra Work: Error Checking
     - Railfence (Implementation + Test Cases) - Extra Work: Error Checking/Support for keys larger than 9 numbers
